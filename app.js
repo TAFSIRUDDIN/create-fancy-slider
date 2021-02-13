@@ -80,10 +80,13 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  let duration = document.getElementById('duration').value || 1000;
+  // Bonus solve 
+  let durationInSecond = document.getElementById('duration').value || 1;
+  let duration = durationInSecond * 1000;
   if(duration <=1000){
     duration = 1000;
   }
+   // Bonus solve
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
