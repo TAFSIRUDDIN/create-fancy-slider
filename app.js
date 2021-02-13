@@ -36,18 +36,30 @@ const getImages = (query) => {
     
 }
 
+
+
+const sliderImageRemove = (array, value) => { 
+    
+  return array.filter(function(image){ 
+      return image != value; 
+  });
+}
+
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add('added');
+  element.classList.toggle('added');
  
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
-  } else {
-    alert('Hey, Already added !')
+  } 
+  else{
+    sliders = sliderImageRemove(sliders, img);
   }
+  
 }
+
 var timer
 const createSlider = () => {
   // check slider image length
@@ -128,25 +140,12 @@ function sarchBtn() {
 //   sliders.length = 0;
 // })
 
-
-
-
-
-
 document.getElementById('search')
   .addEventListener("keypress", function (event) {
  if(event.key == "Enter") {
   sarchBtn();
  }
 });
-
-
-
-
-
-
-
-
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
