@@ -25,10 +25,11 @@ const showImages = (images) => {
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
   })
-
+  loadingSpinner();
 }
 
 const getImages = (query) => {
+  loadingSpinner();
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
@@ -80,13 +81,13 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  // Bonus solve 
+  // Bonus one solve 
   let durationInSecond = document.getElementById('duration').value || 1;
   let duration = durationInSecond * 1000;
   if(duration <=1000){
     duration = 1000;
   }
-   // Bonus solve
+   // Bonus one solve
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
@@ -153,3 +154,10 @@ document.getElementById('search')
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+   // Bonus two solve
+const loadingSpinner = () =>{
+  const spinner =document.getElementById('loading-spinner');
+  spinner.classList.toggle('d-none');
+}
+// Bonus two solve
