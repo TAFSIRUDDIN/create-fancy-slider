@@ -8,9 +8,7 @@ const sliderContainer = document.getElementById('sliders');
 let sliders = [];
 
 
-// If this key doesn't work
-// Find the name in the url and go to their website
-// to create your own api key
+
 const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 
 // show images 
@@ -58,19 +56,26 @@ const selectItem = (event, img) => {
   else{
     sliders = sliderImageRemove(sliders, img);
   }
+
+  //Bonus section: selected image count
   let selectedImg = sliders.length;
   const selected = document.getElementById('selected');
   selected.innerText = `You have selected ${selectedImg} Images` ;
+  //Bonus section: selected image count
 }
 
 var timer
 const createSlider = () => {
   // check slider image length
+
+  //Bonus section: minimum selected image count
   if (sliders.length < 2) {
     const minSelect = document.getElementById('min-select').innerText = "Select at least 2 image.";
     // alert('Select at least 2 image.')
       return;
   }
+//Bonus section: minimum selected image count
+
   // crate slider previous next area
   sliderContainer.innerHTML = '';
   const prevNext = document.createElement('div');
@@ -158,9 +163,9 @@ sliderBtn.addEventListener('click', function () {
   createSlider()
 })
 
-   // Bonus  solve
+   //Bonus section: add a spinner
 const loadingSpinner = () =>{
   const spinner =document.getElementById('loading-spinner');
   spinner.classList.toggle('d-none');
 }
-// Bonus solve
+//Bonus section: add a spinner
