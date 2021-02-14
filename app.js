@@ -58,14 +58,17 @@ const selectItem = (event, img) => {
   else{
     sliders = sliderImageRemove(sliders, img);
   }
-  
+  let selectedImg = sliders.length;
+  const selected = document.getElementById('selected');
+  selected.innerText = `You have selected ${selectedImg} Images` ;
 }
 
 var timer
 const createSlider = () => {
   // check slider image length
   if (sliders.length < 2) {
-    alert('Select at least 2 image.')
+    const minSelect = document.getElementById('min-select').innerText = "Select at least 2 image.";
+    // alert('Select at least 2 image.')
     return;
   }
   // crate slider previous next area

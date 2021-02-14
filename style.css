@@ -64,3 +64,9 @@ img {
     width: 90%;
   }
 }
+
+
+#min-select{
+  color: red;
+  text-align: center;
+}
