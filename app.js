@@ -69,7 +69,7 @@ const createSlider = () => {
   if (sliders.length < 2) {
     const minSelect = document.getElementById('min-select').innerText = "Select at least 2 image.";
     // alert('Select at least 2 image.')
-    return;
+      return;
   }
   // crate slider previous next area
   sliderContainer.innerHTML = '';
@@ -158,9 +158,9 @@ sliderBtn.addEventListener('click', function () {
   createSlider()
 })
 
-   // Bonus two solve
+   // Bonus  solve
 const loadingSpinner = () =>{
   const spinner =document.getElementById('loading-spinner');
   spinner.classList.toggle('d-none');
 }
-// Bonus two solve
+// Bonus solve
